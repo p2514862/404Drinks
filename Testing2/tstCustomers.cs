@@ -17,6 +17,17 @@ namespace Testing2
             Assert.IsNotNull(ACustomer);
         }
 
+        [TestMethod]
+        public void CustomerIDCustomerOK()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            Int32 TestData = 1;
+            ACustomer.CustomerID = TestData;
+            Assert.AreEqual(ACustomer.CustomerID, TestData);
+        }
+            
+
+
 
     }
 }
