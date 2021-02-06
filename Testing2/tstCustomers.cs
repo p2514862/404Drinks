@@ -26,7 +26,14 @@ namespace Testing2
             Assert.AreEqual(ACustomer.CustomerID, TestData);
         }
             
-
+        [TestMethod]
+        public void CustomerNameCustomerOK()
+        {
+            clsCustomers ACustomer = new clsCustomers();
+            String TestData = "Fatimah Badin";
+            ACustomer.CustomerName = TestData;
+            Assert.AreEqual(ACustomer.CustomerName, TestData);
+        }
 
 
     }
