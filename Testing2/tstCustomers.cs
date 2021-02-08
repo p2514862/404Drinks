@@ -85,7 +85,7 @@ namespace Testing2
             String TestData = "123 Green Street LE4 6HB";
             ACustomer.CustomerAddress = TestData;
             Assert.AreEqual(ACustomer.CustomerAddress, TestData);
-        }
+        } 
 
 
 
