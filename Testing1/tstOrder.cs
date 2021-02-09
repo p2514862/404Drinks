@@ -56,5 +56,25 @@ namespace Testing1
             Assert.AreEqual(AnOrder.OrderIDOK, TestData);
 
         }
+
+        [TestMethod]
+        public void CustomerIDOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Int32 TestData = 001;
+            AnOrder.CustomerIDOK = TestData;
+            Assert.AreEqual(AnOrder.CustomerIDOK, TestData);
+
+        }
+
+        [TestMethod]
+        public void ProductIDOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Int32 TestData = 001;
+            AnOrder.ProductIDOK = TestData;
+            Assert.AreEqual(AnOrder.ProductIDOK, TestData);
+
+        }
     }
 }

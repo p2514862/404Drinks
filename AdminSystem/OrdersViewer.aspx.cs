@@ -12,6 +12,12 @@ public partial class _1Viewer : System.Web.UI.Page
     {
         clsOrder AnOrder = new clsOrder();
         AnOrder = (clsOrder)Session["Royal Mail"];
+        Response.Write(AnOrder.OrderIDOK);
+        Response.Write(AnOrder.CustomerIDOK);
+        Response.Write(AnOrder.ProductIDOK);
+        Response.Write(AnOrder.DateOfPurchase);
+        Response.Write(AnOrder.TotalPriceOK);        
         Response.Write(AnOrder.ShippingCompany);
+
     }
 }

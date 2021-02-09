@@ -9,5 +9,7 @@ namespace ClassLibrary
         public int TotalPriceOK { get; set; }
         public string ShippingCompany { get; set; }
         public int OrderIDOK { get; set; }
+        public int CustomerIDOK { get; set; }
+        public int ProductIDOK { get; set; }
     }
 }
