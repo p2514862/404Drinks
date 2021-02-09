@@ -1,0 +1,18 @@
+﻿1>------ Build started: Project: TestingOrders, Configuration: Debug Any CPU ------
+2>------ Build started: Project: TestingCustomers, Configuration: Debug Any CPU ------
+3>------ Build started: Project: TestingStaff, Configuration: Debug Any CPU ------
+4>------ Build started: Project: TestingStock, Configuration: Debug Any CPU ------
+5>------ Build started: Project: TestingBranch, Configuration: Debug Any CPU ------
+6>------ Build started: Project: AdminSystem, Configuration: Debug Any CPU ------
+6>Validating Web Site
+6>Building directory '/'.
+1>  TestingOrders -> C:\TodaysWork\Testing1\bin\Debug\Testing1.dll
+2>  TestingCustomers -> C:\TodaysWork\Testing2\bin\Debug\Testing2.dll
+3>  TestingStaff -> C:\TodaysWork\Testing3\bin\Debug\Testing3.dll
+4>  TestingStock -> C:\TodaysWork\Testing4\bin\Debug\Testing4.dll
+5>C:\TodaysWork\Testing5\UnitTest1.cs(9,18,9,27): error CS0101: The namespace 'Testing5' already contains a definition for 'tstBranch'
+5>C:\TodaysWork\Testing5\UnitTest1.cs(7,6,7,15): error CS0579: Duplicate 'TestClass' attribute
+5>C:\TodaysWork\Testing5\UnitTest1.cs(13,21,13,31): error CS0111: Type 'tstBranch' already defines a member called 'InstanceOK' with the same parameter types
+6>
+6>Validation Complete
+========== Build: 5 succeeded, 1 failed, 2 up-to-date, 0 skipped ==========
