@@ -1,0 +1,53 @@
+﻿[10/02/2021 14:48:23 Informational] ------ Discover test started ------
+[10/02/2021 14:48:24 Informational] ========== Discover test finished: 0 found (0:00:01.1769012) ==========
+[10/02/2021 14:48:24 Informational] ------ Run test started ------
+[10/02/2021 14:48:25 Informational] ========== Run test finished: 0 run (0:00:00.5142746) ==========
+[10/02/2021 14:48:33 Informational] ------ Run test started ------
+[10/02/2021 14:48:33 Informational] ========== Run test finished: 0 run (0:00:00.2891332) ==========
+[10/02/2021 14:49:26 Informational] ------ Run test started ------
+[10/02/2021 14:49:26 Informational] ========== Run test finished: 0 run (0:00:00.4567877) ==========
+[10/02/2021 14:50:33 Informational] ------ Run test started ------
+[10/02/2021 14:50:33 Informational] ========== Run test finished: 0 run (0:00:00.2542811) ==========
+[10/02/2021 15:25:07 Informational] ------ Discover test started ------
+[10/02/2021 15:25:08 Informational] ========== Discover test finished: 32 found (0:00:01.7925244) ==========
+[10/02/2021 15:25:08 Informational] ------ Run test started ------
+[10/02/2021 15:25:11 Informational] ========== Run test finished: 32 run (0:00:02.2889495) ==========
+[10/02/2021 15:29:41 Informational] ------ Discover test started ------
+[10/02/2021 15:29:42 Informational] ========== Discover test finished: 2 found (0:00:00.4619904) ==========
+[10/02/2021 15:29:42 Informational] ------ Run test started ------
+[10/02/2021 15:29:44 Informational] ========== Run test finished: 32 run (0:00:02.4239662) ==========
+[10/02/2021 15:30:58 Warning] Build failed or it was cancelled.
+[10/02/2021 15:31:26 Informational] ------ Discover test started ------
+[10/02/2021 15:31:28 Informational] ========== Discover test finished: 32 found (0:00:01.346684) ==========
+[10/02/2021 15:31:28 Informational] ------ Run test started ------
+[10/02/2021 15:31:30 Informational] ========== Run test finished: 32 run (0:00:02.4215374) ==========
+[10/02/2021 15:42:22 Informational] ------ Discover test started ------
+[10/02/2021 15:42:23 Informational] ========== Discover test finished: 33 found (0:00:01.3944297) ==========
+[10/02/2021 15:42:23 Informational] ------ Run test started ------
+[10/02/2021 15:42:26 Informational] ========== Run test finished: 33 run (0:00:02.3240121) ==========
+[10/02/2021 15:50:30 Informational] ------ Discover test started ------
+[10/02/2021 15:50:31 Informational] ========== Discover test finished: 34 found (0:00:01.3488355) ==========
+[10/02/2021 15:50:31 Informational] ------ Run test started ------
+[10/02/2021 15:50:33 Informational] ========== Run test finished: 34 run (0:00:02.2619523) ==========
+[10/02/2021 15:53:22 Informational] ------ Discover test started ------
+[10/02/2021 15:53:22 Informational] ========== Discover test finished: 4 found (0:00:00.418593) ==========
+[10/02/2021 15:53:22 Informational] ------ Run test started ------
+[10/02/2021 15:53:24 Informational] ========== Run test finished: 34 run (0:00:02.2709413) ==========
+[10/02/2021 15:59:11 Informational] ------ Discover test started ------
+[10/02/2021 15:59:12 Informational] ========== Discover test finished: 35 found (0:00:01.2937862) ==========
+[10/02/2021 15:59:12 Informational] ------ Run test started ------
+[10/02/2021 15:59:15 Informational] ========== Run test finished: 35 run (0:00:02.3828) ==========
+[10/02/2021 16:05:45 Informational] ------ Discover test started ------
+[10/02/2021 16:05:46 Informational] ========== Discover test finished: 36 found (0:00:01.2700773) ==========
+[10/02/2021 16:05:46 Informational] ------ Run test started ------
+[10/02/2021 16:05:48 Informational] ========== Run test finished: 36 run (0:00:02.2787347) ==========
+[10/02/2021 16:11:14 Informational] ------ Discover test started ------
+[10/02/2021 16:11:15 Informational] ========== Discover test finished: 37 found (0:00:01.4503794) ==========
+[10/02/2021 16:11:15 Informational] ------ Run test started ------
+[10/02/2021 16:11:17 Informational] ========== Run test finished: 37 run (0:00:02.2475733) ==========
+[10/02/2021 16:12:16 Warning] Build failed or it was cancelled.
+[10/02/2021 16:12:47 Warning] Build failed or it was cancelled.
+[10/02/2021 16:13:17 Informational] ------ Discover test started ------
+[10/02/2021 16:13:18 Informational] ========== Discover test finished: 7 found (0:00:00.5177851) ==========
+[10/02/2021 16:13:18 Informational] ------ Run test started ------
+[10/02/2021 16:13:20 Informational] ========== Run test finished: 37 run (0:00:02.165284) ==========
