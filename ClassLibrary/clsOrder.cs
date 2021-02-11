@@ -115,19 +115,31 @@ namespace ClassLibrary
             }
         }
 
+
         public bool Find(int OrderID)
         {
-            //Set the private data members to the test data value 
-            mOrderID = 3;
-            mProductID = 2;
-            mCustomerID = 4;
-            mDateOfPurchase = Convert.ToDateTime("10/02/2021");
-            mShippingCompany = "Royal Mail";
-            mOver18 = true;
-            mTotalPrice = 10;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", OrderID);
+            DB.Execute("sproc_tblOrders_FilterByOrderID");
+            if (DB.Count == 1)
+            {
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mDateOfPurchase = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfPurchase"]);
+                mShippingCompany = Convert.ToString(DB.DataTable.Rows[0]["ShippingCompany "]);
+                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18"]);
+                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalPrice"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record was found
+             else
+            {
+                //return false indicating a problem
+                return false;
+            }
 
-            //Always returns true 
-            return true;
         }
     }
 }
