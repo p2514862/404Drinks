@@ -159,7 +159,7 @@ namespace Testing1
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.DateOfPurchase != Convert.ToDateTime("10/02/2021"))
+            if (AnOrder.DateOfPurchase != Convert.ToDateTime("25/01/2021"))
             {
                 OK = false;
             }
@@ -180,7 +180,7 @@ namespace Testing1
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.ShippingCompany != "Royal Mail")
+            if (AnOrder.ShippingCompany != "Hermes")
             {
                 OK = false;
             }
