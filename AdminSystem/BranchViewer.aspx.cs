@@ -14,7 +14,15 @@ public partial class _1Viewer : System.Web.UI.Page
         clsBranch aBranch = new clsBranch();
         //get the data from the session object
         aBranch = (clsBranch)Session["aBranch"];
-        //display the product description for this entry 
+        //displays the product description for this entry 
         Response.Write(aBranch.BranchDescription);
+        Response.Write(aBranch.BranchId);
+        Response.Write(aBranch.StaffId);
+        Response.Write(aBranch.ProductId);
+        Response.Write(aBranch.BranchStartDate);
+        Response.Write(aBranch.IsStaffAvailable);
+
+
     }
+    
 }

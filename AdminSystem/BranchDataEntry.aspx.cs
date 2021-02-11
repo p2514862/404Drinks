@@ -17,16 +17,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsBranch
         clsBranch aBranch = new clsBranch();
-        //capture the house branch id
+
+        //capture the branch description
         aBranch.BranchDescription = txtBranchDescription.Text;
-        //store the branch in the session object 
+        aBranch.BranchId = Convert.ToInt16(txtBranchId.Text);
+        aBranch.ProductId = Convert.ToInt16(txtProductId.Text);
+        aBranch.StaffId = Convert.ToInt16(txtStaffId.Text);
+        aBranch.BranchStartDate = Convert.ToDateTime(txtBranchStartDate.Text);
+        aBranch.IsStaffAvailable = chkIsStaffAvailable.Checked;
         Session["aBranch"] = aBranch;
         //navigate to the viewer page
         Response.Redirect("BranchViewer.aspx");
     }
-
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-
+    
     }
-}
+
+    
