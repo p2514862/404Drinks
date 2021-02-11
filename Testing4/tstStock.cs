@@ -23,9 +23,9 @@ namespace Testing4
             //create some test data to assign to the property
             Int32 TestData = 1;
             //assign the data to the property
-            AnStock.StockNo = TestData;
+            AnStock.ProductID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnStock.StockNo, TestData);
+            Assert.AreEqual(AnStock.ProductID, TestData);
         }
         [TestMethod]
         public void DrinkTypePropertyOK()
@@ -51,17 +51,19 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AnStock.Quantity, TestData);
         }
+        [TestMethod]
         public void PricePropertyOK()
         {
             //create an instance of the class we want to create
             clsStock AnStock = new clsStock();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Decimal TestData = 1;
             //assign the data to the property
             AnStock.Price = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnStock.Price, TestData);
         }
+
         [TestMethod]
         public void DateRecievedPropertyOK()
         {
@@ -86,16 +88,6 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AnStock.Availability, TestData);
         }
-
-
-
-
-
-
-
-
-
-
 
     }
 }
