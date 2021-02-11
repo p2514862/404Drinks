@@ -14,12 +14,12 @@ namespace Testing1
             Assert.IsNotNull(AnOrder);
         }
         [TestMethod]
-        public void IsOver18OK()
+        public void Over18OK()
         {
             clsOrder AnOrder = new clsOrder();
             Boolean TestData = true;
-            AnOrder.isOver18 = TestData;
-            Assert.AreEqual(AnOrder.isOver18, TestData);
+            AnOrder.Over18 = TestData;
+            Assert.AreEqual(AnOrder.Over18, TestData);
         }
         [TestMethod]
         public void DateOfPurchaseOk()
@@ -51,7 +51,7 @@ namespace Testing1
         public void OrderIDOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Int32 TestData = 001;
+            Int32 TestData = 1;
             AnOrder.OrderID = TestData;
             Assert.AreEqual(AnOrder.OrderID, TestData);
 
@@ -61,7 +61,7 @@ namespace Testing1
         public void CustomerIDOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Int32 TestData = 001;
+            Int32 TestData = 1;
             AnOrder.CustomerID = TestData;
             Assert.AreEqual(AnOrder.CustomerID, TestData);
 
@@ -71,7 +71,7 @@ namespace Testing1
         public void ProductIDOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Int32 TestData = 001;
+            Int32 TestData = 1;
             AnOrder.ProductID = TestData;
             Assert.AreEqual(AnOrder.ProductID, TestData);
 
@@ -81,26 +81,156 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
-            decimal TotalPrice = 5;
-            Found = AnOrder.Find(TotalPrice);
+            Int32 OrderID = 1;
+            Found = AnOrder.Find(OrderID);
             Assert.IsTrue(Found);
 
         }
 
         [TestMethod]
-        public void TestTotalPriceFound()
+        public void TestOrderIDFound()
         {
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Decimal TotalPrice = 5;
-            Found = AnOrder.Find(TotalPrice);
-            if (AnOrder.TotalPrice != 5)
+            Int32 OrderID = 3;
+            Found = AnOrder.Find(OrderID);
+            if (AnOrder.OrderID != 3)
             {
                 OK = false;
-                            }
+            }
             Assert.IsTrue(OK);
 
         }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.CustomerID != 4)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestProductIDFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.ProductID != 2)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateOfPurchaseFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.DateOfPurchase != Convert.ToDateTime("10/02/2021"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestShippingCompanyFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.ShippingCompany != "Royal Mail")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestOver18Found()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.Over18 != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestTotalPriceFound()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 OrderID = 3;
+            //invoke the method
+            Found = AnOrder.Find(OrderID);
+            //check the property
+            if (AnOrder.TotalPrice != 10)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+
     }
 }
