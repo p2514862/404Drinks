@@ -17,6 +17,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsBranch
         clsBranch aBranch = new clsBranch();
+
         //capture the branch description
         aBranch.BranchDescription = txtBranchDescription.Text;
         aBranch.BranchId = Convert.ToInt16(txtBranchId.Text);
