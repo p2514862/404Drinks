@@ -18,8 +18,8 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             Boolean TestData = true;
-            AnOrder.isOver18OK = TestData;
-            Assert.AreEqual(AnOrder.isOver18OK, TestData);
+            AnOrder.isOver18 = TestData;
+            Assert.AreEqual(AnOrder.isOver18, TestData);
         }
         [TestMethod]
         public void DateOfPurchaseOk()
@@ -33,9 +33,9 @@ namespace Testing1
         public void TotalPriceOK()
         {
             clsOrder AnOrder = new clsOrder();
-            Int32 TestData = 1;
-            AnOrder.TotalPriceOK = TestData;
-            Assert.AreEqual(AnOrder.TotalPriceOK, TestData);
+            Decimal TestData = 1;
+            AnOrder.TotalPrice = TestData;
+            Assert.AreEqual(AnOrder.TotalPrice, TestData);
         }
 
         [TestMethod]
@@ -52,8 +52,8 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             Int32 TestData = 001;
-            AnOrder.OrderIDOK = TestData;
-            Assert.AreEqual(AnOrder.OrderIDOK, TestData);
+            AnOrder.OrderID = TestData;
+            Assert.AreEqual(AnOrder.OrderID, TestData);
 
         }
 
@@ -62,8 +62,8 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             Int32 TestData = 001;
-            AnOrder.CustomerIDOK = TestData;
-            Assert.AreEqual(AnOrder.CustomerIDOK, TestData);
+            AnOrder.CustomerID = TestData;
+            Assert.AreEqual(AnOrder.CustomerID, TestData);
 
         }
 
@@ -72,8 +72,34 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             Int32 TestData = 001;
-            AnOrder.ProductIDOK = TestData;
-            Assert.AreEqual(AnOrder.ProductIDOK, TestData);
+            AnOrder.ProductID = TestData;
+            Assert.AreEqual(AnOrder.ProductID, TestData);
+
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            decimal TotalPrice = 5;
+            Found = AnOrder.Find(TotalPrice);
+            Assert.IsTrue(Found);
+
+        }
+
+        [TestMethod]
+        public void TestTotalPriceFound()
+        {
+            clsOrder AnOrder = new clsOrder();
+            Boolean Found = false;
+            Boolean OK = true;
+            Decimal TotalPrice = 5;
+            Found = AnOrder.Find(TotalPrice);
+            if (AnOrder.TotalPrice != 5)
+            {
+                OK = false;
+                            }
+            Assert.IsTrue(OK);
 
         }
     }
