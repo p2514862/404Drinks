@@ -22,8 +22,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnStaff.FullName = txtFullName.Text;
         AnStaff.DOB = Convert.ToDateTime(txtDOB.Text);
         AnStaff.Email = txtEmail.Text;
-        //AnStaff.MonthlySalary = Convert.ToInt16(txtMonthlyS.Text); 
-       // AnStaff.OnHoliday = Convert.ToBoolean(chkOnHoliday);
+        AnStaff.MonthlySalary = Convert.ToDecimal(txtMonthlyS.Text); 
+        AnStaff.OnHoliday = chkOnHoliday.Checked; 
         Session["AnStaff"] = AnStaff;
         Response.Redirect("StaffViewer.aspx");
 

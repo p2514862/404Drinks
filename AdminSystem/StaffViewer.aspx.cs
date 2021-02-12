@@ -17,8 +17,8 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AnStaff.FullName);
         Response.Write(AnStaff.DOB);
         Response.Write(AnStaff.Email);
-        //Response.Write(AnStaff.MonthlySalary);
-       //Response.Write(AnStaff.OnHoliday);
+        Response.Write(AnStaff.MonthlySalary);
+        Response.Write(AnStaff.OnHoliday);
 
       
 
