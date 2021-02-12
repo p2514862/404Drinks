@@ -84,7 +84,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            decimal TestData = 1;
+            Decimal TestData = 1;
             //assign the data to the property
             AnStaff.MonthlySalary = TestData;
             //test to see that the two values are the same
