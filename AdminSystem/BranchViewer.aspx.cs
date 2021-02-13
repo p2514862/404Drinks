@@ -15,12 +15,12 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         aBranch = (clsBranch)Session["aBranch"];
         //displays the product description for this entry 
-        Response.Write(aBranch.BranchDescription);
-        Response.Write(aBranch.BranchId);
-        Response.Write(aBranch.StaffId);
-        Response.Write(aBranch.ProductId);
-        Response.Write(aBranch.BranchStartDate);
-        Response.Write(aBranch.IsStaffAvailable);
+        Response.Write(aBranch.BranchDescription + "\n\n");
+        Response.Write(aBranch.BranchId + "\n\n");
+        Response.Write(aBranch.StaffId + "\n\n");
+        Response.Write(aBranch.ProductId + "\n\n");
+        Response.Write(aBranch.BranchStartDate + "\n\n");
+        Response.Write(aBranch.IsStaffAvailable + "\n\n");
 
 
     }

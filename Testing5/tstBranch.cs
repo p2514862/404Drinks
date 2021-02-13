@@ -5,15 +5,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Testing5
 {
     [TestClass]
-    public class tstBranch
+    public class TstBranch
     {
         [TestMethod]
         public void InstanceOK()
         {
-           //create an instance of the class we want to create
-           clsBranch aBranch = new clsBranch();
-           //test to see that it exists 
-           Assert.IsNotNull(aBranch);
+            //create an instance of the class we want to create
+            clsBranch aBranch = new clsBranch();
+            //test to see that it exists 
+            Assert.IsNotNull(aBranch);
         }
 
         [TestMethod]
@@ -29,8 +29,8 @@ namespace Testing5
             Assert.AreEqual(aBranch.IsStaffAvailable, TestData);
 
         }
-          [TestMethod]
-          public void BranchStartDate()
+        [TestMethod]
+        public void BranchStartDate()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -40,10 +40,10 @@ namespace Testing5
             aBranch.BranchStartDate = TestData;
             //test to see that the tw values are the same 
             Assert.AreEqual(aBranch.BranchStartDate, TestData);
-           
+
         }
-           [TestMethod]
-           public void BranchId()
+        [TestMethod]
+        public void BranchId()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -54,8 +54,8 @@ namespace Testing5
             //test to see that the two vlaues are the same
             //Assert.AreEqual(aBranch.BranchId, TestData);
         }
-           [TestMethod]
-           public void StaffId()
+        [TestMethod]
+        public void StaffId()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -67,8 +67,8 @@ namespace Testing5
             Assert.AreEqual(aBranch.StaffId, TestData);
 
         }
-            [TestMethod]
-            public void ProductId()
+        [TestMethod]
+        public void ProductId()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -80,8 +80,8 @@ namespace Testing5
             Assert.AreEqual(aBranch.ProductId, TestData);
 
         }
-            [TestMethod]
-            public void BranchDescription()
+        [TestMethod]
+        public void BranchDescription()
         {
             //create an instance of the class we want to craete
             clsBranch aBranch = new clsBranch();
@@ -91,6 +91,103 @@ namespace Testing5
             aBranch.BranchDescription = TestData;
             //test to see that the two values are the same 
             Assert.AreEqual(aBranch.BranchDescription, TestData);
+        }
+
+        [TestMethod]
+        public void TestBranchIdFound()
+        {
+            //create an instance of the class we want to craete
+            clsBranch aBranch = new clsBranch();
+            //Boolean vraiable to store the results of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is ok 
+            Boolean OK = true;
+            //create some test data to use with the method 
+            Int32 BranchId = 21;
+            //invoke the method
+            Found = aBranch.Find(BranchId);
+            //check the address no
+            if (aBranch.BranchId != 21)
+            {
+                OK = false;
+            }
+            //test to see if the result is true
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestBranchDescriptionFound()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            if (aBranch.BranchDescription != "XXXX XXXX")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductIdFound()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            if (aBranch.ProductId != 2)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffIdFound()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            if (aBranch.StaffId != 4)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestIsStaffAvailableFound()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            if (aBranch.IsStaffAvailable != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestBranchStartDateFound()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            if (aBranch.BranchStartDate !=Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }
