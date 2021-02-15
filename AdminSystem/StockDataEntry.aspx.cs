@@ -26,7 +26,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnStock.Quantity = Convert.ToInt32(txtQuantity.Text);
         AnStock.Price = Convert.ToDecimal(txtPrice.Text);
         AnStock.DateRecieved = Convert.ToDateTime(txtDateReceived.Text);
-        //AnStock.Availability = Convert.ToBoolean(txtAvailability.Text);
+        AnStock.Availability = chkAvailability.Checked;
+       // AnStock.Availability = Convert.ToBoolean(txtAvailability.Text);
         Session["AnStock"] = AnStock;
         Response.Redirect("StockViewer.aspx");
     }
