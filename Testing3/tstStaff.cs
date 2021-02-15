@@ -102,9 +102,121 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(AnStaff.OnHoliday, TestData);
         }
+        [TestMethod]
+        public void FindMethodPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+            //create some test data to assign to the property
+            Boolean Found = false;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            Assert.IsTrue(Found);
+
+        }
+        [TestMethod]
+        public void TestStaffIDPropertyOK()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.StaffID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestBranchIDFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.BranchID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestFullNameFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.FullName != "Firstname Surname")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestEmailFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.Email != "ISurname@gmail.com")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestDOBFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.DOB != Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestMonthlySalaryFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.MonthlySalary != 1) 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestOnHolidayFound()
+        {
+            clsStaff AnStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 1;
+            Found = AnStaff.Find(StaffID);
+            if (AnStaff.OnHoliday != true) 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
 
 
+        }
     }
-
 }
+
 
