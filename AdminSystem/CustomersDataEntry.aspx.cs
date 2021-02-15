@@ -22,10 +22,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsCustomers ACustomer = new clsCustomers();
 
+        ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
         ACustomer.CustomerName = txtCustomerName.Text;
         ACustomer.CustomerEmail = txtCustomerEmail.Text;
         ACustomer.Password = txtPassword.Text;
         ACustomer.CustomerAddress = txtCustomerAddress.Text;
+        ACustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
 
         Session["ACustomer"] = ACustomer;
 
