@@ -123,13 +123,13 @@ namespace ClassLibrary
             DB.Execute("sproc_tblOrders_FilterByOrderID");
             if (DB.Count == 1)
             {
-                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
-                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
-                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
-                mDateOfPurchase = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfPurchase"]);
-                mShippingCompany = Convert.ToString(DB.DataTable.Rows[0]["ShippingCompany "]);
-                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18"]);
-                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalPrice"]);
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0][2]);
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0][1]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0][1]);
+                mDateOfPurchase = Convert.ToDateTime(DB.DataTable.Rows[0][21/01/2021]);
+                mShippingCompany = Convert.ToString(DB.DataTable.Rows[0]["Royal Mail"]);
+                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0][1]);
+                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0][6]);
                 //return that everything worked ok
                 return true;
             }
