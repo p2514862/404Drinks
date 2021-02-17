@@ -93,9 +93,9 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             Found = AnOrder.Find(OrderID);
-            if (AnOrder.OrderID != 2)
+            if (AnOrder.OrderID != 1)
             {
                 OK = false;
             }
@@ -113,7 +113,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
@@ -134,7 +134,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
@@ -155,11 +155,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.DateOfPurchase != Convert.ToDateTime(21/01/2021))
+            if (AnOrder.DateOfPurchase != Convert.ToDateTime("21/01/2021"))
             {
                 OK = false;
             }
@@ -176,11 +176,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.ShippingCompany != "Royal Mail")
+            if (AnOrder.ShippingCompany != "RoyalMail")
             {
                 OK = false;
             }
@@ -197,7 +197,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
@@ -218,7 +218,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 2;
+            Int32 OrderID = 1;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
