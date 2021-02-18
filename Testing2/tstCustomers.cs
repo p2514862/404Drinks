@@ -190,7 +190,7 @@ namespace Testing2
             Boolean OK = true;
             Int32 CustomerID = 1;
             Found = ACustomer.Find(CustomerID);
-            if (ACustomer.Password != "fatimah123                                                  ")
+            if (ACustomer.Password != "fatimah123")
             {
                 OK = false;
             }
