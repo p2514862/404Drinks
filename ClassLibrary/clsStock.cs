@@ -15,11 +15,11 @@ namespace ClassLibrary
                 return mProductID;
             }
             set
-            { 
+            {
                 //this line of code allows data into the property
                 mProductID = value;
+            }
         }
-    }
         private string mDrinkType;
         public string DrinkType
         {
@@ -73,31 +73,42 @@ namespace ClassLibrary
 
         private Boolean mAvailability;
         public bool Availability
+        {
+            get
             {
-                get
-            {
-                    //return the private data
-                    return mAvailability;
-                }
-                set
+                //return the private data
+                return mAvailability;
+            }
+            set
             {
                 //set the private data
-                 mAvailability = value;
-                }
+                mAvailability = value;
             }
+        }
 
 
-        public bool Find(int productID)
+        public bool Find(int ProductID)
         {
-            //set the private data members to the test data value
-            mProductID = 1;
-            mDrinkType = "fizzy";
-            mQuantity = 1;
-            mPrice = 1;
-            mDateRecieved = Convert.ToDateTime("16/9/2015");
-            mAvailability = true;
-            //mDrinkType = Convert.ToString("To String");
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ProductID", ProductID);
+            // DB.Execute("sproc_tblStock_FilterByProductID");
+            DB.Execute("sproc_tblStock_FilterByProductID");
+            if (DB.Count == 1)
+            {
+                mProductID = Convert.ToInt32(DB.DataTable.Rows[0]["ProductID"]);
+                mDrinkType = Convert.ToString(DB.DataTable.Rows[0]["DrinkType"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mDateRecieved = Convert.ToDateTime(DB.DataTable.Rows[0]["DateRecieved"]);
+                mAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["Availability"]);
+                //mDrinkType = Convert.ToString("To String");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
+
