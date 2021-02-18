@@ -16,7 +16,6 @@ namespace ClassLibrary
         {
             get
             {
-                //this line of code sends data out of the property
                 return mBranchId;
             }
             set
@@ -46,7 +45,7 @@ namespace ClassLibrary
         {
             get
             {
-                return mBranchstartDate;
+                return mBranchstartDate.Date;
             }
             set
             {
@@ -99,16 +98,26 @@ namespace ClassLibrary
 
         public bool Find(int branchId)
         {
-            //set the private data members to the test data value
-            mBranchId = 21;
-            mProductId = 2;
-            mStaffId = 4;
-            mIsStaffAvailable = true;
-            mBranchDescription = "XXXX XXXX";
-            mBranchstartDate = Convert.ToDateTime("16/9/2015");
+            //create an instance of data connection
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BranchId", branchId);
+            DB.Execute("sproc_tblBranch_FilterByBranchId");
 
-            //always return true 
-            return true;
+            if (DB.Count == 1)
+            {
+                mBranchId = Convert.ToInt32(DB.DataTable.Rows[0]["BranchId"]);
+                mProductId = Convert.ToInt32(DB.DataTable.Rows[0]["ProductId"]);
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mBranchDescription = Convert.ToString(DB.DataTable.Rows[0]["BranchDescription"]);
+                mBranchstartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["BranchStartDate"]);
+                mIsStaffAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["IsStaffAvailable"]);
+                //return that everything worked OK
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

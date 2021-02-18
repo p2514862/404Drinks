@@ -10,7 +10,7 @@ namespace Testing5
         [TestMethod]
         public void InstanceOK()
         {
-            //create an instance of the class we want to create
+            //create an instance of a class we want to create
             clsBranch aBranch = new clsBranch();
             //test to see that it exists 
             Assert.IsNotNull(aBranch);
@@ -44,10 +44,9 @@ namespace Testing5
         }
         [TestMethod]
         public void BranchId()
-        {
-            //create an instance of the class we want to create
+        { 
             clsBranch aBranch = new clsBranch();
-            //create some test data to assign to the property
+            //create some test data to assign to property
             Int16 TestData = 1;
             //assign the data to the property 
             aBranch.BranchId = TestData;
@@ -123,7 +122,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 BranchId = 21;
             Found = aBranch.Find(BranchId);
-            if (aBranch.BranchDescription != "XXXX XXXX")
+            if (aBranch.BranchDescription != "Juice")
             {
                 OK = false;
             }
@@ -183,7 +182,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 BranchId = 21;
             Found = aBranch.Find(BranchId);
-            if (aBranch.BranchStartDate !=Convert.ToDateTime("16/09/2015"))
+            if (aBranch.BranchStartDate !=Convert.ToDateTime("19/06/2015"))
             {
                 OK = false;
             }
