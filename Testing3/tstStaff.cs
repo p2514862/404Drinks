@@ -46,7 +46,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "Firstname Surname";
+            string TestData = "Parth Patel";
             //assign the data to the property
             AnStaff.FullName = TestData;
             //test to see that the two values are the same
@@ -72,7 +72,7 @@ namespace Testing3
             //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "ISurname@gmail.com";
+            string TestData = "PPatel@gmail.com.uk";
             //assign the data to the property
             AnStaff.Email = TestData;
             //test to see that the two values are the same
@@ -115,7 +115,7 @@ namespace Testing3
 
         }
         [TestMethod]
-        public void TestStaffIDPropertyOK()
+        public void TestStaffIDFound()
         {
             clsStaff AnStaff = new clsStaff();
             Boolean Found = false;
@@ -136,7 +136,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.BranchID != 1)
+            if (AnStaff.BranchID != 4)
             {
                 OK = false;
             }
@@ -150,7 +150,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.FullName != "Firstname Surname")
+            if (AnStaff.FullName != "Parth Patel")
             {
                 OK = false;
             }
@@ -165,7 +165,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.Email != "ISurname@gmail.com")
+            if (AnStaff.Email != "PPatel@gmail.com.uk")
             {
                 OK = false;
             }
@@ -180,7 +180,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.DOB != Convert.ToDateTime("16/09/2015"))
+            if (AnStaff.DOB != Convert.ToDateTime("12/02/1999"))
             {
                 OK = false;
             }
@@ -194,7 +194,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StaffID = 1;
             Found = AnStaff.Find(StaffID);
-            if (AnStaff.MonthlySalary != 1) 
+            if (AnStaff.MonthlySalary != 1000) 
             {
                 OK = false;
             }
