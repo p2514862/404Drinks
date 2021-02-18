@@ -26,4 +26,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["Royal Mail"] = AnOrder;
         Response.Redirect("OrdersViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrder AnOrder = new clsOrder();
+        Int32 OrderID;
+        Boolean Found = false;
+        OrderID = Convert.ToInt32(txtOrderID.Text);
+        Found = AnOrder.Find(OrderID);
+        if (Found == true)
+        {
+            
+            txtCustomerID.Text = Convert.ToString (AnOrder.CustomerID);
+            txtProductID.Text = Convert.ToString(AnOrder.ProductID);
+            txtDateOfPurchase.Text = Convert.ToString(AnOrder.DateOfPurchase);
+            txtTotalPrice.Text = Convert.ToString(AnOrder.TotalPrice);
+            txtShippingCompany.Text = Convert.ToString(AnOrder.ShippingCompany);
+
+        }
+    }
 }
