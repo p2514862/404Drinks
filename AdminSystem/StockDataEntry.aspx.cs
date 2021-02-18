@@ -32,4 +32,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Response.Redirect("StockViewer.aspx");
     }
 
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStock AnStock = new clsStock();
+        Int32 ProductID;
+        Boolean Found = false;
+        ProductID = Convert.ToInt32(txtProductID.Text);
+        Found = AnStock.Find(ProductID);
+        if (Found == true)
+        {
+            txtProductID.Text = AnStock.ProductID.ToString();
+            txtDrinkType.Text = AnStock.DrinkType;
+            txtQuantity.Text = AnStock.Quantity.ToString();
+            txtPrice.Text = AnStock.Price.ToString();
+            txtDateReceived.Text = AnStock.DateRecieved.ToString();
+        }
+    }
 }
