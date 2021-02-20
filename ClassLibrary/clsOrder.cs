@@ -141,5 +141,10 @@ namespace ClassLibrary
             }
 
         }
+
+        public string Valid(int customerID, int productID, string dateOfPurchase, decimal totalPrice, string shippingCompany)
+        {
+            return"";
+        }
     }
 }

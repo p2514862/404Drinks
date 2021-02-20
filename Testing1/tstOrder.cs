@@ -7,6 +7,13 @@ namespace Testing1
     [TestClass]
     public class tstOrder
     {
+        //Good Test Data
+        int CustomerID = 1;
+        int ProductID = 1;
+        Decimal TotalPrice = 6;
+        String ShippingCompany = "RoyalMail";
+        String DateOfPurchase = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -228,6 +235,13 @@ namespace Testing1
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+        public void ValidMethodOK()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            Error = AnOrder.Valid(CustomerID, ProductID, DateOfPurchase, TotalPrice, ShippingCompany);
+            Assert.AreEqual(Error, "");
         }
 
 
