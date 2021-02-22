@@ -38,14 +38,14 @@ namespace ClassLibrary
                 mIsStaffAvailable = value;
             }
         }
-
+    
 
         private DateTime mBranchstartDate;
         public DateTime BranchStartDate
         {
             get
             {
-                return mBranchstartDate.Date;
+                return mBranchstartDate;
             }
             set
             {
