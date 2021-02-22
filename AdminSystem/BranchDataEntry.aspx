@@ -12,6 +12,8 @@
         </div>
         <asp:Label ID="BranchId" runat="server" Text="Branch Id"></asp:Label>
 &nbsp;<asp:TextBox ID="txtBranchId" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         <p style="width: 77px">
             Satff Id
             <asp:TextBox ID="txtStaffId" runat="server" style="margin-left: 86px" Width="168px"></asp:TextBox>

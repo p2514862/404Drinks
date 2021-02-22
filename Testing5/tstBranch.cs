@@ -29,8 +29,19 @@ namespace Testing5
             Assert.AreEqual(aBranch.IsStaffAvailable, TestData);
 
         }
+
         [TestMethod]
-        public void BranchStartDate()
+        public void FindMethodOK()
+        {
+            clsBranch aBranch = new clsBranch();
+            Boolean Found = false;
+            Int32 BranchId = 21;
+            Found = aBranch.Find(BranchId);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void BranchStartDateOK()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -43,7 +54,7 @@ namespace Testing5
 
         }
         [TestMethod]
-        public void BranchId()
+        public void BranchIdOK()
         { 
             clsBranch aBranch = new clsBranch();
             //create some test data to assign to property
@@ -54,20 +65,19 @@ namespace Testing5
             //Assert.AreEqual(aBranch.BranchId, TestData);
         }
         [TestMethod]
-        public void StaffId()
+        public void StaffIdOK()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
             //create some test data to assign to the property 
             Int16 TestData = 1;
-            //assign data to the property
             aBranch.StaffId = TestData;
             //test to see that the two vlaues are the same
             Assert.AreEqual(aBranch.StaffId, TestData);
 
         }
         [TestMethod]
-        public void ProductId()
+        public void ProductIdOK()
         {
             //create an instance of the class we want to create
             clsBranch aBranch = new clsBranch();
@@ -75,12 +85,11 @@ namespace Testing5
             Int16 TestData = 1;
             //assign data to the property
             aBranch.ProductId = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(aBranch.ProductId, TestData);
 
         }
         [TestMethod]
-        public void BranchDescription()
+        public void BranchDescriptionOK()
         {
             //create an instance of the class we want to craete
             clsBranch aBranch = new clsBranch();
