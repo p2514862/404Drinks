@@ -109,6 +109,58 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string drinkType, string quantity, string price, string dateRecieved)
+        {
+            //return "";
+            String Error = "";
+            DateTime DateTemp;
+            if (drinkType.Length == 0)
+            {
+                Error = Error + "This Drink type cannot be blank :";
+            }
+            if (drinkType.Length > 15)
+            {
+                Error = Error + "The Drink type must be less than 15 characters.";
+            }
+            if (quantity.Length == 0)
+            {
+                Error = Error + "The quantity must not be left blank :";
+            }
+            if (quantity.Length > 2)
+            {
+                Error = Error + "The quantity must be less than 99: ";
+            }
+            if (price.Length == 0)
+            {
+                Error = Error + "The price must not be left empty:";
+            }
+            if (price.Length > 18)
+            {
+                Error = Error + "The price cannot be more than 18 characters";
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateRecieved);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date is not a valid date";
+            }
+                return Error;
+            }
+        }
     }
-}
+
+
+
+
 
