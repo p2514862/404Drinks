@@ -2,7 +2,7 @@
 
 namespace ClassLibrary
 {
- 
+
     public class clsStaff
     {
         private Int32 mStaffID;
@@ -11,7 +11,7 @@ namespace ClassLibrary
         private DateTime mDOB;
         private String mEmail;
         private Decimal mMonthlySalary;
-        private Boolean mOnHoliday; 
+        private Boolean mOnHoliday;
 
         public Int32 StaffID
         {
@@ -121,8 +121,58 @@ namespace ClassLibrary
             }
         }
 
-        
-        
-    }
+        public string Valid(string fullName, string dOB, string email, string monthlySalary)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            if (email.Length == 0)
+            {
+                Error = Error + "The email may not be blank : ";
+            }
+            if (email.Length > 50)
+            {
 
+                Error = Error + "The email must be less than 50 characters : ";
+            }
+            if (fullName.Length == 0)
+            {
+                Error = Error + "The fullname may not be blank : ";
+            }
+            if (fullName.Length > 100)
+            {
+
+                Error = Error + "The fullname must be less than 100 characters : ";
+            }
+            if (monthlySalary.Length == 0)
+            {
+                Error = Error + "The monthly salary may not be blank : ";
+            }
+            if (monthlySalary.Length > 10)
+            {
+
+                Error = Error + "The monthlysalary must be less than 10 characters : ";
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(dOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+
+                    Error = Error + "The date has to be 16 years past : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date : ";
+
+            }
+            return Error;
+        }
+    }
 }
+            
+    
