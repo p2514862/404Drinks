@@ -141,5 +141,97 @@ namespace ClassLibrary
             }
 
         }
+
+        public string Valid(string customerName, string customerEmail, string password, string customerAddress, object dateOfBirth)
+        {
+            //create string variable to store error;
+            String Error = "";
+         
+
+            //if blank
+            if (customerName.Length == 0)
+            {
+                //record error
+                Error = Error + "The name field should not be left blank. ";
+            }
+            //if customer name is no greater than 50 chars
+            if(customerName.Length > 50)
+            {
+                //record error
+                Error = Error + "The name field must be less than 50 characters. "; 
+            }
+
+            //Customer Email
+            if(customerEmail.Length == 0)
+            {
+                Error = Error + "The email field cannot be left blank. ";
+            }
+            if(customerEmail.Length > 100)
+            {
+                Error = Error + "The email is too long, it should be 100 characters or less. ";
+            }
+
+            //Password
+            if(password.Length < 8 )
+            {
+                Error = Error + "The password is too short. ";
+            }
+            if(password.Length > 60)
+            {
+                Error = Error + "The password is too long, it should be 60 characters or less. ";
+            }
+
+
+            //CustomerAddress
+            if(customerAddress.Length == 0)
+            {
+                Error = Error + "The address field cannot be left blank. ";
+            }
+            if(customerAddress.Length > 150)
+            {
+                Error = Error + "The address is too long, it should be 150 characters or less. ";
+            }
+
+
+            //return error message
+            return Error;
+        }
+
+        public string Valid2(string customerName, string customerEmail, string password, string customerAddress, string dateOfBirth)
+        {
+
+            //create string variable to store error;
+            String Error = "";
+
+            //create temp variable to store data values
+            DateTime DateTemp;
+            DateTime tLess16 = DateTime.Now.Date.AddYears(-16);
+            DateTime tMoreThan100 = DateTime.Now.Date.AddYears (-100);
+
+            try
+            {
+
+
+                //copy dateOfBirth value to DateTemp
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+
+
+                if (DateTemp < tMoreThan100)
+                {
+                    Error = Error + "Too old ";
+                }
+                if (DateTemp > tLess16)
+                {
+                    Error = Error + "Too young ";
+                }
+            }
+            catch
+            {
+                Error = Error + "That is not a valid date. ";
+            }
+
+            return Error;
+
+        }
     }
 }
