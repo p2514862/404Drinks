@@ -19,19 +19,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
-    {   
+    {
         clsStock AnStock = new clsStock();
-        AnStock.ProductID = Convert.ToInt32(txtProductID.Text);
-        AnStock.DrinkType = txtDrinkType.Text;
-        AnStock.Quantity = Convert.ToInt32(txtQuantity.Text);
-        AnStock.Price = Convert.ToDecimal(txtPrice.Text);
-        AnStock.DateRecieved = Convert.ToDateTime(txtDateReceived.Text);
-        AnStock.Availability = chkAvailability.Checked;
-       // AnStock.Availability = Convert.ToBoolean(txtAvailability.Text);
-        Session["AnStock"] = AnStock;
-        Response.Redirect("StockViewer.aspx");
+        string DrinkType = txtDrinkType.Text;
+        string Quantity = txtQuantity.Text;
+        string Price = txtPrice.Text;
+        string DateRecieved = txtDateReceived.Text;
+        string Error = "";
+        Error = AnStock.Valid(DrinkType, Quantity, Price, DateRecieved);
+        if (Error == "")
+        {
+            AnStock.ProductID = Convert.ToInt32(txtProductID.Text);
+            AnStock.DrinkType = txtDrinkType.Text;
+            AnStock.Quantity = Convert.ToInt32(txtQuantity.Text);
+            AnStock.Price = Convert.ToDecimal(txtPrice.Text);
+            AnStock.DateRecieved = Convert.ToDateTime(txtDateReceived.Text);
+            AnStock.Availability = chkAvailability.Checked;
+            // AnStock.Availability = Convert.ToBoolean(txtAvailability.Text);
+            Session["AnStock"] = AnStock;
+            Response.Write("StockViewer.aspx");
+           // Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
-
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
