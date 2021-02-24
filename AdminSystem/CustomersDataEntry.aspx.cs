@@ -22,17 +22,47 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsCustomers ACustomer = new clsCustomers();
 
-        ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        ACustomer.CustomerName = txtCustomerName.Text;
-        ACustomer.CustomerEmail = txtCustomerEmail.Text;
-        ACustomer.Password = txtPassword.Text;
-        ACustomer.CustomerAddress = txtCustomerAddress.Text;
-        ACustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+        //ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+        string CustomerName = txtCustomerName.Text;
+        string CustomerEmail = txtCustomerEmail.Text;
+        string Password = txtPassword.Text;
+        string CustomerAddress = txtCustomerAddress.Text;
+        string DateOfBirth = txtDateOfBirth.Text;
+        string Error = "";
+        string Error2 = "";
+        Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
+        Error2 = ACustomer.Valid2(DateOfBirth);
 
-        Session["ACustomer"] = ACustomer;
+        if (Error == "")
+        {
+            ACustomer.CustomerName = CustomerName;
+            ACustomer.CustomerEmail = CustomerEmail;
+            ACustomer.Password = Password;
+            ACustomer.CustomerAddress = CustomerAddress;
+            
 
-        //Navigate to the viewer page
-        Response.Redirect("CustomersViewer.aspx");
+            Session["ACustomer"] = ACustomer;
+
+            //Navigate to the viewer page
+            Response.Redirect("CustomersViewer.aspx");
+
+        }
+        else if (Error2 == "") 
+        {
+            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+
+            Session["ACustomer"] = ACustomer;
+
+            //Navigate to the viewer page
+            Response.Redirect("CustomersViewer.aspx");
+
+        }
+        else
+        {
+            lblError.Text = Error;
+            lblError2.Text = Error2;
+        }
+
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

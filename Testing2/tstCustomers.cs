@@ -228,8 +228,10 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             //string variable to store any error message 
             String Error = "";
+            String Error2 = "";
             //invoke method 
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
+            Error2 = ACustomer.Valid2(DateOfBirth);
             //test to see that the result is correct 
             Assert.AreEqual(Error, "");
         }
@@ -240,7 +242,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerName = ""; //this should trigger an error
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -250,7 +252,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerName = "f"; //this should be ok
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, ""); 
         }
 
@@ -260,7 +262,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerName = "ff";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -271,7 +273,7 @@ namespace Testing2
             String Error = "";
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(49, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -282,7 +284,7 @@ namespace Testing2
             String Error = "";
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(50, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -293,7 +295,7 @@ namespace Testing2
             String Error = "";
             string CustomerName = "";
             CustomerName =  CustomerName.PadRight(25, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -304,7 +306,7 @@ namespace Testing2
             String Error = "";
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(51, 'f'); //should fail
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -315,7 +317,7 @@ namespace Testing2
             String Error = "";
             string CustomerName = "";
             CustomerName = CustomerName.PadRight(1000, 'f'); //should fail
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -329,7 +331,7 @@ namespace Testing2
             //set the date totodays date
             TestDate = DateTime.Now.Date;
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -342,7 +344,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-15);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -355,7 +357,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-16);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreEqual(Error, "");
         }
 
@@ -368,7 +370,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-17);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreEqual(Error, "");
         }
 
@@ -381,7 +383,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-99);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreEqual(Error, "");
         }
 
@@ -394,7 +396,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreEqual(Error, "");
         }
 
@@ -407,7 +409,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-101);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -420,7 +422,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-42);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreEqual(Error, "");
         }
 
@@ -433,7 +435,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-1000);
             string DateOfBirth = TestDate.ToString();
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -443,7 +445,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string DateOfBirth = "this is not a date";
-            Error = ACustomer.Valid2(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid2(DateOfBirth);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -454,7 +456,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerEmail = "";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -464,7 +466,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerEmail = "f";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -474,7 +476,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerEmail = "ff";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -485,7 +487,7 @@ namespace Testing2
             String Error = "";
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(99, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -496,7 +498,7 @@ namespace Testing2
             String Error = "";
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(100, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -507,7 +509,7 @@ namespace Testing2
             String Error = "";
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(101, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -518,7 +520,7 @@ namespace Testing2
             String Error = "";
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(50, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -529,7 +531,7 @@ namespace Testing2
             String Error = "";
             string CustomerEmail = "";
             CustomerEmail = CustomerEmail.PadRight(10000, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -539,7 +541,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string Password = "";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -550,7 +552,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(7, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -561,7 +563,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(8, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -572,7 +574,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(9, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -583,7 +585,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(59, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -594,7 +596,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(60, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -605,7 +607,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(61, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -616,7 +618,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(30, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -627,7 +629,7 @@ namespace Testing2
             String Error = "";
             string Password = "";
             Password = Password.PadRight(1000, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -638,7 +640,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerAddress = "";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -648,7 +650,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerAddress = "f";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -658,7 +660,7 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string CustomerAddress = "ff";
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -669,7 +671,7 @@ namespace Testing2
             String Error = "";
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(149, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -680,7 +682,7 @@ namespace Testing2
             String Error = "";
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(150, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -691,7 +693,7 @@ namespace Testing2
             String Error = "";
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(151, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -702,7 +704,7 @@ namespace Testing2
             String Error = "";
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(75, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreEqual(Error, "");
         }
 
@@ -713,7 +715,7 @@ namespace Testing2
             String Error = "";
             string CustomerAddress = "";
             CustomerAddress = CustomerAddress.PadRight(10000, 'f');
-            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+            Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
             Assert.AreNotEqual(Error, "");
         }
 
