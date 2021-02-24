@@ -142,7 +142,7 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string customerName, string customerEmail, string password, string customerAddress, object dateOfBirth)
+        public string Valid(string customerName, string customerEmail, string password, string customerAddress)
         {
             //create string variable to store error;
             String Error = "";
@@ -197,16 +197,16 @@ namespace ClassLibrary
             return Error;
         }
 
-        public string Valid2(string customerName, string customerEmail, string password, string customerAddress, string dateOfBirth)
+        public string Valid2(string dateOfBirth)
         {
 
             //create string variable to store error;
-            String Error = "";
+            String Error2 = "";
 
             //create temp variable to store data values
             DateTime DateTemp;
-            DateTime tLess16 = DateTime.Now.Date.AddYears(-16);
-            DateTime tMoreThan100 = DateTime.Now.Date.AddYears (-100);
+            DateTime Less16 = DateTime.Now.Date.AddYears(-16);
+            DateTime MoreThan100 = DateTime.Now.Date.AddYears (-100);
 
             try
             {
@@ -216,21 +216,21 @@ namespace ClassLibrary
                 DateTemp = Convert.ToDateTime(dateOfBirth);
 
 
-                if (DateTemp < tMoreThan100)
+                if (DateTemp < MoreThan100)
                 {
-                    Error = Error + "Too old ";
+                    Error2 = Error2 + "Too old ";
                 }
-                if (DateTemp > tLess16)
+                if (DateTemp > Less16)
                 {
-                    Error = Error + "Too young ";
+                    Error2 = Error2 + "Too young ";
                 }
             }
             catch
             {
-                Error = Error + "That is not a valid date. ";
+                Error2 = Error2 + "That is not a valid date. ";
             }
 
-            return Error;
+            return Error2;
 
         }
     }
