@@ -224,7 +224,7 @@ namespace Testing2
         [TestMethod]
         public void ValidMethodOK()
         {
-            //Create an instance if rge class we want to create 
+            //Create an instance of the class we want to create 
             clsCustomers ACustomer = new clsCustomers();
             //string variable to store any error message 
             String Error = "";
