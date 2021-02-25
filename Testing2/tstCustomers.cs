@@ -224,15 +224,10 @@ namespace Testing2
         [TestMethod]
         public void ValidMethodOK()
         {
-            //Create an instance of the class we want to create 
+            
             clsCustomers ACustomer = new clsCustomers();
-            //string variable to store any error message 
             String Error = "";
-           // String Error2 = "";
-            //invoke method 
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
-           // Error2 = ACustomer.Valid2(DateOfBirth);
-            //test to see that the result is correct 
             Assert.AreEqual(Error, "");
         }
 
@@ -331,7 +326,6 @@ namespace Testing2
             //set the date totodays date
             TestDate = DateTime.Now.Date;
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreNotEqual(Error, "");
@@ -346,7 +340,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-15);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreNotEqual(Error, "");
@@ -361,7 +354,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-16);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreEqual(Error, "");
@@ -376,7 +368,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-17);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreEqual(Error, "");
@@ -391,7 +382,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-99);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreEqual(Error, "");
@@ -406,7 +396,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreEqual(Error, "");
@@ -421,7 +410,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-101);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreNotEqual(Error, "");
@@ -436,7 +424,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-42);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreEqual(Error, "");
@@ -451,7 +438,6 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-1000);
             string DateOfBirth = TestDate.ToString();
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreNotEqual(Error, "");
@@ -463,7 +449,6 @@ namespace Testing2
             clsCustomers ACustomer = new clsCustomers();
             String Error = "";
             string DateOfBirth = "this is not a date";
-            //Error = ACustomer.Valid2(DateOfBirth);
             Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
 
             Assert.AreNotEqual(Error, "");

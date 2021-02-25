@@ -224,41 +224,6 @@ namespace ClassLibrary
             return Error;
         }
 
-       /* public string Valid2(string dateOfBirth)
-        {
-
-            //create string variable to store error;
-            String Error2 = "";
-
-            //create temp variable to store data values
-            DateTime DateTemp;
-            DateTime Less16 = DateTime.Now.Date.AddYears(-16);
-            DateTime MoreThan100 = DateTime.Now.Date.AddYears (-100);
-
-            try
-            {
-
-
-                //copy dateOfBirth value to DateTemp
-                DateTemp = Convert.ToDateTime(dateOfBirth);
-
-
-                if (DateTemp < MoreThan100)
-                {
-                    Error2 = Error2 + "Too old ";
-                }
-                if (DateTemp > Less16)
-                {
-                    Error2 = Error2 + "Too young ";
-                }
-            }
-            catch
-            {
-                Error2 = Error2 + "That is not a valid date. ";
-            }
-
-            return Error2;
-
-        }*/
+    
     }
 }

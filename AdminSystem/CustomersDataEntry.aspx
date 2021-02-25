@@ -32,7 +32,6 @@
         <asp:CheckBox ID="chkLiveInUK" runat="server" Text="Lives in the UK" />
         <p>
             <asp:Label ID="lblError" runat="server"></asp:Label>
-            <asp:Label ID="lblError2" runat="server"></asp:Label>
         </p>
         <asp:Button ID="btnConfirm" runat="server" OnClick="btnConfirm_Click1" Text="Confirm" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />

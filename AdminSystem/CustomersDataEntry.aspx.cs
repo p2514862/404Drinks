@@ -30,9 +30,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string CustomerAddress = txtCustomerAddress.Text;
         string DateOfBirth = txtDateOfBirth.Text;
         string Error = "";
-       // string Error2 = "";
         Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
-        //Error2 = ACustomer.Valid2(DateOfBirth);
+        
 
         if (Error == "")
         {
