@@ -142,11 +142,15 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(string customerName, string customerEmail, string password, string customerAddress)
+        public string Valid(string customerName, string customerEmail, string password, string customerAddress, string dateOfBirth)
         {
             //create string variable to store error;
             String Error = "";
-         
+
+            //create temp variable to store data values
+            DateTime DateTemp;
+
+
 
             //if blank
             if (customerName.Length == 0)
@@ -161,8 +165,31 @@ namespace ClassLibrary
                 Error = Error + "The name field must be less than 50 characters. "; 
             }
 
+            //Date
+            try
+            {
+
+
+                //copy dateOfBirth value to DateTemp
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+
+
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
+                    Error = Error + "Too old ";
+                }
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
+                {
+                    Error = Error + "Too young ";
+                }
+            }
+            catch
+            {
+                Error = Error + "That is not a valid date. ";
+            }
+
             //Customer Email
-            if(customerEmail.Length == 0)
+            if (customerEmail.Length == 0)
             {
                 Error = Error + "The email field cannot be left blank. ";
             }
@@ -197,7 +224,7 @@ namespace ClassLibrary
             return Error;
         }
 
-        public string Valid2(string dateOfBirth)
+       /* public string Valid2(string dateOfBirth)
         {
 
             //create string variable to store error;
@@ -232,6 +259,6 @@ namespace ClassLibrary
 
             return Error2;
 
-        }
+        }*/
     }
 }
