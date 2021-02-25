@@ -21,7 +21,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnConfirm_Click1(object sender, EventArgs e)
     {
         clsCustomers ACustomer = new clsCustomers();
-        clsCustomers ACustomer2 = new clsCustomers();
+
 
 
         //ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
@@ -41,10 +41,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ACustomer.CustomerEmail = CustomerEmail;
             ACustomer.Password = Password;
             ACustomer.CustomerAddress = CustomerAddress;
-            ACustomer2.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
 
             Session["ACustomer"] = ACustomer;
-            Session["ACustomer2"] = ACustomer2;
+            
 
             //Navigate to the viewer page
             Response.Redirect("CustomersViewer.aspx");
