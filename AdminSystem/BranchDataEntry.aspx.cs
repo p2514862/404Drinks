@@ -19,16 +19,36 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsBranch aBranch = new clsBranch();
 
         //capture the branch description
-        aBranch.BranchDescription = txtBranchDescription.Text;
-        aBranch.BranchId = Convert.ToInt16(txtBranchId.Text);
-        aBranch.ProductId = Convert.ToInt16(txtProductId.Text);
-        aBranch.StaffId = Convert.ToInt16(txtStaffId.Text);
-        aBranch.BranchStartDate = Convert.ToDateTime(txtBranchStartDate.Text);
-        aBranch.IsStaffAvailable = chkIsStaffAvailable.Checked;
-        Session["aBranch"] = aBranch;
-        //navigate to the viewer page
-        Response.Redirect("BranchViewer.aspx");
+        string BranchDescription = txtBranchDescription.Text;
+        string BranchId = txtBranchId.Text;
+        string ProductId = txtProductId.Text;
+        string StaffId = txtStaffId.Text;
+        string BranchStartDate = txtBranchStartDate.Text;
+        //variable to store any error messages
+        string Error ="";
+        //validate the data
+        Error = aBranch.Valid(BranchDescription, StaffId, ProductId, BranchStartDate);
+        if (Error == "")
+        {
+            //capture the attributes 
+            aBranch.BranchDescription = BranchDescription;
+            aBranch.StaffId = Convert.ToInt32(StaffId);
+            aBranch.ProductId = Convert.ToInt32(ProductId);
+            aBranch.BranchStartDate = Convert.ToDateTime(BranchStartDate);
+
+            //IsStaffAvailable = chkIsStaffAvailable.Checked;
+            Session["aBranch"] = aBranch;
+            //navigate to the viewer page
+            Response.Write("BranchViewer.aspx");
+        }
+        else
+        {
+            //display the error message 
+            lblError.Text = Error;
+            
+        }
     }
+
 
 
     protected void btnFind_Click(object sender, EventArgs e)
