@@ -38,7 +38,7 @@ namespace ClassLibrary
                 mIsStaffAvailable = value;
             }
         }
-    
+
 
         private DateTime mBranchstartDate;
         public DateTime BranchStartDate
@@ -119,5 +119,46 @@ namespace ClassLibrary
                 return false;
             }
         }
+        public string Valid(string productId, string staffId, string branchDescription, string branchStartDate)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values 
+            DateTime DateTemp;
+            //if the BranchDescription is blank 
+            if (branchDescription.Length == 0)
+            {
+                //record the error 
+                Error = Error + "The branch description may not be blank : ";
+            }
+            //if the branch description is greater than 100 characters 
+            if (branchDescription.Length > 8)
+            {
+                //record the error 
+                Error = Error + "The branch description must be less than 8 characters : ";
+
+            }
+            try
+            {
+                DateTemp = Convert.ToDateTime(BranchStartDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the past :";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date :";
+            }
+
+
+            return Error;
+            }
+    
+        }
     }
-}
+    
