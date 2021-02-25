@@ -142,9 +142,35 @@ namespace ClassLibrary
 
         }
 
-        public string Valid(int customerID, int productID, string dateOfPurchase, decimal totalPrice, string shippingCompany)
+        public string Valid(string shippingCompany, string customerID, string productID, string dateOfPurchase, string totalPrice)
         {
-            return"";
+            String Error = "";
+            DateTime DateTemp;
+            //if blank
+            if (shippingCompany.Length == 0)
+            {
+                Error = Error + "This field cannot be left blank. ";
+            }
+            //if shippingCompany is greater than 50 characters
+            if (shippingCompany.Length > 50)
+            {
+                //record error
+                Error = Error + "The shipping company field must be less than 50 characters. ";
+            }
+
+            DateTemp = Convert.ToDateTime(dateOfPurchase);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record any error messages
+                Error = Error + "This is not a valid date. ";
+            }
+            if (DateTemp > DateTime.Now.Date)
+            {
+                Error = Error + "Date of purchase cannot be in the future. ";
+            }
+
+            //return any error messages
+            return Error;
         }
     }
 }
