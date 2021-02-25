@@ -23,7 +23,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomers ACustomer = new clsCustomers();
 
 
-
         //ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
         string CustomerName = txtCustomerName.Text;
         string CustomerEmail = txtCustomerEmail.Text;
@@ -31,11 +30,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string CustomerAddress = txtCustomerAddress.Text;
         string DateOfBirth = txtDateOfBirth.Text;
         string Error = "";
-        string Error2 = "";
-        Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress);
-        Error2 = ACustomer.Valid2(DateOfBirth);
+       // string Error2 = "";
+        Error = ACustomer.Valid(CustomerName, CustomerEmail, Password, CustomerAddress, DateOfBirth);
+        //Error2 = ACustomer.Valid2(DateOfBirth);
 
-        if (Error == "" && Error2 == "")
+        if (Error == "")
         {
             ACustomer.CustomerName = CustomerName;
             ACustomer.CustomerEmail = CustomerEmail;
@@ -44,7 +43,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
 
             Session["ACustomer"] = ACustomer;
-            
+
 
             //Navigate to the viewer page
             Response.Redirect("CustomersViewer.aspx");
@@ -53,26 +52,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         else
         {
             lblError.Text = Error;
-            lblError2.Text = Error2;
+            
         }
-
-        /*clsCustomers ACustomer2 = new clsCustomers();
-        string DateOfBirth = txtDateOfBirth.Text;
-        string Error2 = "";
-        Error2 = ACustomer.Valid2(DateOfBirth);
-        if (Error2 == "")
-        {
-            ACustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
-
-            Session["ACustomer2"] = ACustomer2;
-
-            //Navigate to the viewer page
-            Response.Redirect("CustomersViewer.aspx");
-        }
-        else
-        {
-            lblError2.Text = Error2;
-        }*/
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
