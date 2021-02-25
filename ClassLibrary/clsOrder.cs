@@ -146,6 +146,9 @@ namespace ClassLibrary
         {
             String Error = "";
             DateTime DateTemp;
+
+            //Shipping Company
+
             //if blank
             if (shippingCompany.Length == 0)
             {
@@ -157,20 +160,68 @@ namespace ClassLibrary
                 //record error
                 Error = Error + "The shipping company field must be less than 50 characters. ";
             }
+            //Date Of Purchase
+            try
+            {   //copy dateOfPurchase value to DateTemp
 
-            DateTemp = Convert.ToDateTime(dateOfPurchase);
-            if (DateTemp < DateTime.Now.Date)
-            {
-                //record any error messages
-                Error = Error + "This is not a valid date. ";
+                DateTemp = Convert.ToDateTime(dateOfPurchase);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record any error messages
+                    Error = Error + "This is not a valid date. ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "Date of purchase cannot be in the future. ";
+                }
             }
-            if (DateTemp > DateTime.Now.Date)
+            catch
             {
-                Error = Error + "Date of purchase cannot be in the future. ";
+                Error = Error + "That is not a valid date. ";
             }
 
+            //CustomerID
+            //if blank
+            if (customerID.Length == 0)
+            {
+                Error = Error + "This field cannot be left blank. ";
+            }
+            //if CustomerID is greater than 100,000 characters
+            if (customerID.Length > 100000)
+            {
+                //record error
+                Error = Error + "The customerID field must be less than 100,000 characters. ";
+            }
+
+            //ProductID
+            //if blank
+            if (productID.Length == 0)
+            {
+                Error = Error + "This field cannot be left blank. ";
+            }
+            //if productID is greater than 100,000 characters
+            if (productID.Length > 100000)
+            {
+                //record error
+                Error = Error + "The productID field must be less than 100,000 characters. ";
+            }
+
+            try
+            {
+                decimal i = 0;
+                bool result = decimal.TryParse(totalPrice, out i);
+
+                if (result == false)
+                {
+                    Error = Error + "The data entered in this field is not valid. ";
+                }
+            }
+            catch
+            {
+                Error = Error + "That is not a valid date. ";
+            }
             //return any error messages
-            return Error;
+            return Error;        
         }
     }
 }
