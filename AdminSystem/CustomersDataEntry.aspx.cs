@@ -21,8 +21,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnConfirm_Click1(object sender, EventArgs e)
     {
         clsCustomers ACustomer = new clsCustomers();
-       
-
 
         //ACustomer.CustomerID = Convert.ToInt32(txtCustomerID.Text);
         string CustomerName = txtCustomerName.Text;
