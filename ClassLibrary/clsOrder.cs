@@ -150,17 +150,20 @@ namespace ClassLibrary
             //create temp variable to store data values
             DateTime DateTemp;
 
+
             //Shipping Company
+
             //if blank
             if (shippingCompany.Length == 0)
             {
-                Error = Error + "This field cannot be left blank. ";
+                Error = Error + "Shipping company field cannot be left blank. ";
             }
+
             //if shippingCompany is greater than 50 characters
             if (shippingCompany.Length > 50)
             {
                 //record error
-                Error = Error + "The shipping company field must be less than 50 characters. ";
+                Error = Error + "Shipping company field must be less than 50 characters. ";
             }
 
 
@@ -168,8 +171,8 @@ namespace ClassLibrary
 
             //Date Of Purchase
             try
-            {   //copy dateOfPurchase value to DateTemp
-
+            {   
+                //copy dateOfPurchase value to DateTemp
                 DateTemp = Convert.ToDateTime(dateOfPurchase);
                 if (DateTemp <= DateTime.Now.Date.AddYears(-100))
                 {
@@ -183,7 +186,7 @@ namespace ClassLibrary
             }
             catch
             {
-                Error = Error + "That is not a valid date. ";
+                Error = Error + "Invalid date entered. ";
             }
 
 
@@ -191,67 +194,76 @@ namespace ClassLibrary
             //if blank
             try
             {
+                decimal i;
+                bool result = decimal.TryParse(customerID, out i);
 
-                if (customerID.Length <= 0)
+                if (i <= 0)
                 {
-                    Error = Error + "This field cannot be left blank, or have digits below zero. ";
+                    Error = Error + "The data entered in customerID field cannot be 0 or less. ";
                 }
+
+
                 //if CustomerID is greater than 100,000 characters
                 if (customerID.Length > 100000)
                 {
                     //record error
-                    Error = Error + "The customerID field must be less than 100,000 characters. ";
+                    Error = Error + "The data entered in customerID field must be less than 100,000 characters. ";
                 }
             }
             catch
             {
-                Error = Error + "The data entered within this field is not valid. ";
+                Error = Error + "Invalid CustomerID entered. ";
             }
-
-
-
 
 
             //ProductID
             try
-            {   
-                if (productID.Length <= 0)
+            {
+                Int32 i;
+                bool result = Int32.TryParse(productID, out i);
+
+                if (result == false) //data type check
                 {
-                    Error = Error + "This field cannot be left blank, or have digits below zero. ";
+                    Error = Error + "Please only input numbers within the ProductID field. ";
+                }
+                        
+                if (i <= 0)
+                {
+                    Error = Error + "The data entered in ProductID field cannot be 0 or less. ";
                 }
 
                 if (productID.Length > 100000)
                 {
-                    Error = Error + "The productID cannot be greater than 100,000. ";
-                } 
+                    Error = Error + "The data entered in ProductID field must be less than 100,000 characters. ";
+                }
             }
-
             catch
             {
-                Error = Error + "The data entered within this field is not valid. ";
+                Error = Error + "Invalid ProductID entered. ";
             }
+         
 
         
             //TotalPrice
             try
             {
                 decimal i;
-                bool result = decimal.TryParse(totalPrice, out i);
+                bool result = decimal.TryParse(totalPrice, out i);                
 
                 if (i <= 0) //min
                 {
-                    Error = Error + "The data entered in this field cannot be 0 or less. ";
+                    Error = Error + "The data entered in in the Total Price field cannot be 0 or less. ";
                 }
 
                 if (totalPrice.Length == 0)//empty
                 {
-                    Error = Error + "This field cannot be left blank. ";
+                    Error = Error + "Total Price field cannot be left blank. ";
                 }
             }
 
             catch
             {
-                Error = Error + "The data entered within this field is not valid. ";
+                Error = Error + "The data entered within Total Price field is not valid. ";
             }
             
             //return any error messages

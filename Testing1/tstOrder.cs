@@ -448,7 +448,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string CustomerID = "";
-            CustomerID = CustomerID.PadRight(99999, '1'); //should be ok
+            CustomerID = "99999"; //should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -458,7 +458,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string CustomerID = "";
-            CustomerID = CustomerID.PadRight(100000, '1'); //should be ok
+            CustomerID = "100000"; //should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -469,7 +469,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string CustomerID = "";
-            CustomerID = CustomerID.PadRight(50000, '1'); //should be ok
+            CustomerID = "50000"; //should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -551,7 +551,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string ProductID = "";
-            ProductID = ProductID.PadRight(99999, '1'); //should be ok
+            ProductID = "99999"; //should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -561,7 +561,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string ProductID = "";
-            ProductID = ProductID.PadRight(100000, '1'); //should be ok
+            ProductID = "100000"; //should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -572,7 +572,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string ProductID = "";
-            ProductID = ProductID.PadRight(50000, '1');//should be ok
+            ProductID = "50000";//should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -626,7 +626,8 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string TotalPrice = "0"; //this should trigger an error
+            string TotalPrice = "";
+            TotalPrice = "0";//this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
