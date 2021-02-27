@@ -144,11 +144,13 @@ namespace ClassLibrary
 
         public string Valid(string shippingCompany, string customerID, string productID, string dateOfPurchase, string totalPrice)
         {
+            //create string variable to store error;
             String Error = "";
+
+            //create temp variable to store data values
             DateTime DateTemp;
 
             //Shipping Company
-
             //if blank
             if (shippingCompany.Length == 0)
             {
@@ -160,17 +162,21 @@ namespace ClassLibrary
                 //record error
                 Error = Error + "The shipping company field must be less than 50 characters. ";
             }
+
+
+
+
             //Date Of Purchase
             try
             {   //copy dateOfPurchase value to DateTemp
 
                 DateTemp = Convert.ToDateTime(dateOfPurchase);
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp <= DateTime.Now.Date.AddYears(-100))
                 {
                     //record any error messages
-                    Error = Error + "This is not a valid date. ";
+                    Error = Error + "Date of purchase cannot be older than 100 years ";
                 }
-                if (DateTemp > DateTime.Now.Date)
+                if (DateTemp >= DateTime.Now.Date.AddDays(1))
                 {
                     Error = Error + "Date of purchase cannot be in the future. ";
                 }
@@ -180,46 +186,74 @@ namespace ClassLibrary
                 Error = Error + "That is not a valid date. ";
             }
 
+
             //CustomerID
             //if blank
-            if (customerID.Length == 0)
-            {
-                Error = Error + "This field cannot be left blank. ";
-            }
-            //if CustomerID is greater than 100,000 characters
-            if (customerID.Length > 100000)
-            {
-                //record error
-                Error = Error + "The customerID field must be less than 100,000 characters. ";
-            }
-
-            //ProductID
-            //if blank
-            if (productID.Length == 0)
-            {
-                Error = Error + "This field cannot be left blank. ";
-            }
-            //if productID is greater than 100,000 characters
-            if (productID.Length > 100000)
-            {
-                //record error
-                Error = Error + "The productID field must be less than 100,000 characters. ";
-            }
-
             try
             {
-                decimal i = 0;
-                bool result = decimal.TryParse(totalPrice, out i);
 
-                if (result == false)
+                if (customerID.Length <= 0)
                 {
-                    Error = Error + "The data entered in this field is not valid. ";
+                    Error = Error + "This field cannot be left blank, or have digits below zero. ";
+                }
+                //if CustomerID is greater than 100,000 characters
+                if (customerID.Length > 100000)
+                {
+                    //record error
+                    Error = Error + "The customerID field must be less than 100,000 characters. ";
                 }
             }
             catch
             {
-                Error = Error + "That is not a valid date. ";
+                Error = Error + "The data entered within this field is not valid. ";
             }
+
+
+
+
+
+            //ProductID
+            try
+            {   
+                if (productID.Length <= 0)
+                {
+                    Error = Error + "This field cannot be left blank, or have digits below zero. ";
+                }
+
+                if (productID.Length > 100000)
+                {
+                    Error = Error + "The productID cannot be greater than 100,000. ";
+                } 
+            }
+
+            catch
+            {
+                Error = Error + "The data entered within this field is not valid. ";
+            }
+
+        
+            //TotalPrice
+            try
+            {
+                decimal i;
+                bool result = decimal.TryParse(totalPrice, out i);
+
+                if (i <= 0) //min
+                {
+                    Error = Error + "The data entered in this field cannot be 0 or less. ";
+                }
+
+                if (totalPrice.Length == 0)//empty
+                {
+                    Error = Error + "This field cannot be left blank. ";
+                }
+            }
+
+            catch
+            {
+                Error = Error + "The data entered within this field is not valid. ";
+            }
+            
             //return any error messages
             return Error;        
         }

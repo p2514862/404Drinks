@@ -351,10 +351,10 @@ namespace Testing1
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddDays(-1); //this should trigger an error
+            TestDate = TestDate.AddDays(-1); //should be ok
             string DateOfPurchase = TestDate.ToString();
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -400,7 +400,17 @@ namespace Testing1
             String Error = "";
             string DateOfPurchase = "This is not a date"; //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
+            Assert.AreNotEqual(Error, "");
+        }
 
+        [TestMethod]
+        public void CustomerIDExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string CustomerID = "";
+            CustomerID = "-1000000"; //this should trigger an error
+            Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -483,7 +493,7 @@ namespace Testing1
             string CustomerID = "";
             CustomerID = CustomerID.PadRight(1000000, '1'); //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
-            Assert.AreNotEqual(Error, "");
+            Assert.AreNotEqual(Error, ""); 
         }
 
         [TestMethod]
@@ -491,9 +501,19 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string CustomerID = "This is not a CustomerID"; //this should trigger an error
+            string CustomerID = "Ayaz"; //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
+            Assert.AreNotEqual(Error, "");
+        }
 
+        [TestMethod]
+        public void ProductIDExtremeMin()
+        {
+            clsOrder AnOrder = new clsOrder();
+            String Error = "";
+            string ProductID = "";
+            ProductID = "-1000000"; //this should trigger an error
+            Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -579,14 +599,14 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
 
+
         [TestMethod]
         public void ProductIDInvalidData()
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string ProductID = "This is not a ProductID"; //this should trigger an error
+            string ProductID = "Ayaz"; //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
-
             Assert.AreNotEqual(Error, "");
         }
 
@@ -596,7 +616,7 @@ namespace Testing1
             clsOrder AnOrder = new clsOrder();
             String Error = "";
             string TotalPrice = "";
-            TotalPrice = TotalPrice.PadRight(-10000000, '1'); //this should trigger an error
+            TotalPrice = "-10000000"; //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
@@ -606,7 +626,7 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string TotalPrice = "-1"; //this should trigger an error
+            string TotalPrice = "0"; //this should trigger an error
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
@@ -616,7 +636,7 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string TotalPrice = "0"; //this should be ok
+            string TotalPrice = "1"; //this should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -626,7 +646,7 @@ namespace Testing1
         {
             clsOrder AnOrder = new clsOrder();
             String Error = "";
-            string TotalPrice = "10"; //this should trigger an error
+            string TotalPrice = "2"; //this should be ok
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreEqual(Error, "");
         }
@@ -640,23 +660,5 @@ namespace Testing1
             Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
             Assert.AreNotEqual(Error, "");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
