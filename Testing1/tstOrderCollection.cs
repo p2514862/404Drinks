@@ -32,16 +32,8 @@ namespace Testing1
             AllOrders.OrderList = TestList;
             Assert.AreEqual(AllOrders.OrderList, TestList);
         }
-        /*
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            clsOrderCollection AllOrders = new clsOrderCollection();
-            Int32 SomeCount = 0;
-            AllOrders.Count = SomeCount;
-            Assert.AreEqual(AllOrders.Count, SomeCount);
-        }
-        */
+        
+       
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
