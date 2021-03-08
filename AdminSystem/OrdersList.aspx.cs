@@ -18,12 +18,12 @@ public partial class _Default : System.Web.UI.Page
     void DisplayOrders()
     {
         clsOrderCollection Orders = new clsOrderCollection();
-        /*
-        lstOrders.DataSource = Orders.OrderList;
-        lstOrders.DateValueField = "OrderID";
-        lstOrders.DataText = "ShippingCompany";
-        lstOrders.DataBind();
-        */
+
+        lstOrderList.DataSource = Orders.OrderList;
+        lstOrderList.DataValueField = "OrderID";
+        lstOrderList.DataTextField = "ShippingCompany";
+        lstOrderList.DataBind();
+        
 
     }
 }
