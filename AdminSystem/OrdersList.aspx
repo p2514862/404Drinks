@@ -14,6 +14,9 @@
    
     <form id="form1" runat="server">
         <asp:ListBox ID="lstOrderList" runat="server"></asp:ListBox>
+        <p>
+            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+        </p>
     </form>
    
 </body>

@@ -27,15 +27,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnOrder.Valid(ShippingCompany, CustomerID, ProductID, DateOfPurchase, TotalPrice);
         if (Error == "")
         {
-            AnOrder.OrderID = Convert.ToInt32(txtOrderID.Text);
-            AnOrder.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-            AnOrder.ProductID = Convert.ToInt32(txtProductID.Text);
-            AnOrder.DateOfPurchase = Convert.ToDateTime(txtDateOfPurchase.Text);
-            AnOrder.TotalPrice = Convert.ToDecimal(txtTotalPrice.Text);
-            AnOrder.ShippingCompany = txtShippingCompany.Text;
+            AnOrder.CustomerID = Convert.ToInt32(CustomerID);
+            AnOrder.ProductID = Convert.ToInt32(ProductID);
+            AnOrder.TotalPrice = Convert.ToDecimal(TotalPrice);
+            AnOrder.DateOfPurchase = Convert.ToDateTime(DateOfPurchase);
+            AnOrder.ShippingCompany = ShippingCompany;
+            AnOrder.Over18 = chkOver18.Checked;
 
-            Session["Royal Mail"] = AnOrder;
-            Response.Redirect("OrdersViewer.aspx");
+            clsOrderCollection OrderList = new clsOrderCollection();
+            OrderList.ThisOrder = AnOrder;
+            OrderList.Add();
+            Response.Redirect("OrderList.aspx");
         }
         else
         {
