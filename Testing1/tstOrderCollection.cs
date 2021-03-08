@@ -70,6 +70,32 @@ namespace Testing1
             Assert.AreEqual(AllOrders.Count, TestList.Count);
 
         }
-       
+        [TestMethod]
+        public void AddMethod()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrder TestItem = new clsOrder();
+
+            Int32 PrimaryKey = 0;
+
+            TestItem.OrderID = 3;
+            TestItem.CustomerID = 3;
+            TestItem.ProductID = 3;
+            TestItem.ShippingCompany = "DHL";
+            TestItem.DateOfPurchase = Convert.ToDateTime("09/03/2021");
+            TestItem.Over18 = true;
+            TestItem.TotalPrice = 15;
+
+            AllOrders.ThisOrder = TestItem;
+
+            PrimaryKey = AllOrders.Add();
+
+            TestItem.OrderID = PrimaryKey;
+
+            AllOrders.ThisOrder.Find(PrimaryKey);
+
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+
     }
 }
