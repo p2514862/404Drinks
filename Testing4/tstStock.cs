@@ -314,7 +314,7 @@ namespace Testing4
             clsStock AnStock = new clsStock();
             String Error = "";
             String Quantity = "";
-            Quantity = Quantity.PadRight(4, 'a');
+            Quantity = Quantity.PadRight(3, 'a');
             Error = AnStock.Valid(DrinkType, Quantity, Price, DateRecieved);
             Assert.AreNotEqual(Error, "");
         }
