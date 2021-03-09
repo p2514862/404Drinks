@@ -121,11 +121,19 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string fullName, string dOB, string email, string monthlySalary)
+        public string Valid(string branchID, string fullName, string dOB, string email, string monthlySalary)
         {
-            String Error = "";
             DateTime DateTemp;
-            if (email.Length == 0)
+            String Error = "";
+            if (branchID.Length == 0)
+            {
+                Error = Error + "This branch does not exist)"; 
+            }
+            if (branchID.Length > 2)
+            {
+                Error = Error + "This branch does not exist, It Showld be two  digit number";
+            }
+            if (email.Length == 0) 
             {
                 Error = Error + "The email may not be blank : ";
             }
@@ -155,14 +163,16 @@ namespace ClassLibrary
             try
             {
                 DateTemp = Convert.ToDateTime(dOB);
-                if (DateTemp < DateTime.Now.Date)
+
+                if (DateTemp < DateTime.Now.Date.AddYears(-65))
                 {
 
-                    Error = Error + "The date has to be 16 years past : ";
+                    Error = Error + "The Date of birth shows the person is too old : ";
                 }
-                if (DateTemp > DateTime.Now.Date)
+
+                if (DateTemp > DateTime.Now.Date.AddYears(-16))
                 {
-                    Error = Error + "The date cannot be in the future : ";
+                    Error = Error + "The Date of birth shows the person is too young : ";
                 }
             }
             catch
@@ -174,5 +184,9 @@ namespace ClassLibrary
         }
     }
 }
-            
-    
+
+
+
+
+
+

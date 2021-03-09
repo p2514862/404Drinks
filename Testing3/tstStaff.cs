@@ -7,105 +7,75 @@ namespace Testing3
     [TestClass]
     public class tstStaff
     {
-        // String BranchID = "4";
+        String BranchID = "4";
         String FullName = "Parth Patel";
-        String DOB = DateTime.Now.Date.ToString();
+        String DOB = DateTime.Now.Date.AddYears(-16).ToString();
         String Email = "PPatel@gmail.com.uk";
         String MonthlySalary = "1000";
 
         [TestMethod]
         public void InstanceOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //test to see that it exists
             Assert.IsNotNull(AnStaff);
 
         }
         [TestMethod]
         public void StaffIDPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             Int32 TestData = 1;
-            //assign the data to the property
             AnStaff.StaffID = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.StaffID, TestData);
         }
         [TestMethod]
         public void BranchIDPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             Int32 TestData = 1;
-            //assign the data to the property
             AnStaff.BranchID = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.BranchID, TestData);
         }
         [TestMethod]
         public void FullNamePropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             string TestData = "Parth Patel";
-            //assign the data to the property
             AnStaff.FullName = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.FullName, TestData);
 
         }
         [TestMethod]
         public void DOBPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             // DateTime TestData = new DateTime (1999, 7, 10);
             DateTime TestData = DateTime.Now.Date;
-            //assign the data to the property
             AnStaff.DOB = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.DOB, TestData);
         }
         [TestMethod]
         public void EmailPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             string TestData = "PPatel@gmail.com.uk";
-            //assign the data to the property
             AnStaff.Email = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.Email, TestData);
         }
         [TestMethod]
         public void MonthlySalaryPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             Decimal TestData = 1;
-            //assign the data to the property
             AnStaff.MonthlySalary = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.MonthlySalary, TestData);
         }
         [TestMethod]
         public void OnHolidayPropertyOK()
         {
-            //create an instance of the class we want to create
             clsStaff AnStaff = new clsStaff();
-            //create some test data to assign to the property
             Boolean TestData = true;
-            //assign the data to the property
             AnStaff.OnHoliday = TestData;
-            //test to see that the two values are the same
             Assert.AreEqual(AnStaff.OnHoliday, TestData);
         }
         [TestMethod]
@@ -223,19 +193,94 @@ namespace Testing3
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
-
+            
 
         }
+        [TestMethod]
+        public void BranchIDMinLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            String BranchID = "";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
 
+        }
+        [TestMethod]
+        public void BranchIDMin()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "a";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BranchIDMinPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "aa";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BranchIDMaxLessOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "a";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void BranchIDMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "aa";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void BranchIDMaxPlusOne()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "aaa";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void BranchIDMid()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "a";
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void BranchIDExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            string BranchID = "";
+            BranchID = BranchID.PadRight(1000, 'a');
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
+        }
         [TestMethod]
         public void EmailMinLessOne()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             String Email = "";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
 
         }
@@ -245,7 +290,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string Email = "a";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -254,7 +299,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string Email = "aa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -264,7 +309,7 @@ namespace Testing3
             String Error = "";
             string Email = "";
             Email = Email.PadRight(49, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -274,7 +319,7 @@ namespace Testing3
             String Error = "";
             string Email = "";
             Email = Email.PadRight(50, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
 
         }
@@ -285,7 +330,7 @@ namespace Testing3
             String Error = "";
             string Email = "";
             Email = Email.PadRight(51, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -295,18 +340,18 @@ namespace Testing3
             String Error = "";
             string Email = "";
             Email = Email.PadRight(25, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
-        public void EmailEtremeMax()
+        public void EmailextremeMax()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string Email = "";
             Email = Email.PadRight(1000, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -315,7 +360,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             String FullName = "";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
 
 
@@ -326,7 +371,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string FullName = "aa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -335,7 +380,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string FullName = "aaa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -345,7 +390,7 @@ namespace Testing3
             String Error = "";
             string FullName = "";
             FullName = FullName.PadRight(99, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -355,7 +400,7 @@ namespace Testing3
             String Error = "";
             string FullName = "";
             FullName = FullName.PadRight(100, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -365,7 +410,7 @@ namespace Testing3
             String Error = "";
             string FullName = "";
             FullName = FullName.PadRight(101, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -375,18 +420,18 @@ namespace Testing3
             String Error = "";
             string FullName = "";
             FullName = FullName.PadRight(50, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
-        public void FullNameEtremeMax()
+        public void FullNameExtremeMax()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string FullName = "";
             FullName = FullName.PadRight(10000, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -395,7 +440,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             String FullName = "";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
 
 
@@ -406,7 +451,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "aa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -415,7 +460,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "aaa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -424,7 +469,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "aaaaaaaaa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -433,7 +478,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "aaaaaaaaaa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -443,7 +488,7 @@ namespace Testing3
             String Error = "";
             string MonthlySalary = "";
             MonthlySalary = FullName.PadRight(11, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -452,18 +497,18 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "aaaaa";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
 
         }
         [TestMethod]
-        public void MonthlySalaryEtremeMax()
+        public void MonthlySalaryExtremeMax()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
             string MonthlySalary = "";
             MonthlySalary = FullName.PadRight(10000, 'a');
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -474,10 +519,10 @@ namespace Testing3
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddDays(-1);
-            string DateAdded = TestDate.ToString();
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
-            Assert.AreEqual(Error, "");
+            TestDate = TestDate.AddDays(-15);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -487,9 +532,9 @@ namespace Testing3
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-65);
-            string DateAdded = TestDate.ToString();
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            TestDate = TestDate.AddYears(-16);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -499,9 +544,9 @@ namespace Testing3
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddDays(1);
-            string DateAdded = TestDate.ToString();
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            TestDate = TestDate.AddYears(-17);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -511,21 +556,54 @@ namespace Testing3
             String Error = "";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(16);
-            string DateAdded = TestDate.ToString();
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            TestDate = TestDate.AddYears(-65);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DOBMaxPluseone()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-66);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DOBMaxlessone()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-64);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DOBExtremeMax()
+        {
+            clsStaff AnStaff = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DOB = TestDate.ToString();
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void DOBInvalidData()
         {
             clsStaff AnStaff = new clsStaff();
             String Error = "";
-            //String FullName = "Parth Patel";
-            //String Email = "PPatel@gmail.com.uk";
-            //String MonthlySalary = "1000";
             String DOB = "This is not a date!";
-            Error = AnStaff.Valid(FullName, DOB, Email, MonthlySalary);
+            Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
             Assert.AreNotEqual(Error, "");
 
         }

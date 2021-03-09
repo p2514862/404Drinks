@@ -17,15 +17,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
-        AnStaff.StaffID = Convert.ToInt16(txtStaffID.Text);
-        AnStaff.BranchID = Convert.ToInt16(txtBranchID.Text);
-        AnStaff.FullName = txtFullName.Text;
-        AnStaff.DOB = Convert.ToDateTime(txtDOB.Text);
-        AnStaff.Email = txtEmail.Text;
-        AnStaff.MonthlySalary = Convert.ToDecimal(txtMonthlyS.Text); 
-        AnStaff.OnHoliday = chkOnHoliday.Checked; 
-        Session["AnStaff"] = AnStaff;
-        Response.Redirect("StaffViewer.aspx");
+        //String StaffID = Convert.ToInt16(txtStaffID.Text);
+        String BranchID = txtBranchID.Text;
+        String FullName = txtFullName.Text;
+        String DOB = txtDOB.Text;
+        String Email = txtEmail.Text;
+        String MonthlySalary = txtMonthlyS.Text;
+        // String OnHoliday = chkOnHoliday.Checked; 
+
+        String Error = "";
+        Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
+        if (Error == "")
+        {
+            AnStaff.BranchID = Convert.ToInt32(txtBranchID.Text);
+            AnStaff.FullName = txtFullName.Text;
+            AnStaff.DOB = Convert.ToDateTime(txtDOB.Text);
+            AnStaff.Email = txtEmail.Text;
+            AnStaff.MonthlySalary = Convert.ToDecimal(txtMonthlyS.Text);
+            Session["AnStaff"] = AnStaff;
+            Response.Redirect("StaffViwe.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
 
         
       
@@ -49,5 +64,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
             
 
         }
+        
     }
 }
