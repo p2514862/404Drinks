@@ -37,8 +37,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStock.Availability = chkAvailability.Checked;
             // AnStock.Availability = Convert.ToBoolean(txtAvailability.Text);
             Session["AnStock"] = AnStock;
-            Response.Write("StockViewer.aspx");
-           // Response.Redirect("StockViewer.aspx");
+            //Response.Write("StockViewer.aspx");
+            Response.Redirect("StockViewer.aspx");
         }
         else
         {
