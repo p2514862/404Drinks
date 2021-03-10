@@ -80,6 +80,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtCustomerEmail.Text = ACustomer.CustomerEmail;
             txtPassword.Text = ACustomer.Password;
             txtDateOfBirth.Text = ACustomer.DateOfBirth.ToString();
+            txtCustomerAddress.Text = ACustomer.CustomerAddress;
         }
 
     }
