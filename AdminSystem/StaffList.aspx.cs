@@ -28,4 +28,10 @@ public partial class _Default : System.Web.UI.Page
 
 
     }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["StaffID"] = -1;
+        Response.Redirect("AnStaff.aspx");
+    }
 }

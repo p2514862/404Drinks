@@ -8,6 +8,7 @@ namespace ClassLibrary
     {
 
         List<clsStaff> mStaffList = new List<clsStaff>();
+        clsStaff mThisStaff = new clsStaff();
 
         public List<clsStaff> StaffList
         {
@@ -34,7 +35,18 @@ namespace ClassLibrary
                 //worry about it later
             }
         }
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff
+        {
+            get
+            {
+                return mThisStaff;
+            }
+            set
+            {
+                mThisStaff = value;
+            }
+        }
+        
        
         public clsStaffCollection()
         {
@@ -60,7 +72,19 @@ namespace ClassLibrary
             
         }
 
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BranchID", mThisStaff.BranchID);
+            DB.AddParameter("@FullName", mThisStaff.FullName);
+            DB.AddParameter("@Email", mThisStaff.Email);
+            DB.AddParameter("@DOB", mThisStaff.DOB);
+            DB.AddParameter("@MonthlySalary", mThisStaff.MonthlySalary);
+            DB.AddParameter("@OnHoliday", mThisStaff.OnHoliday);
 
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+        
     }
 }
   
