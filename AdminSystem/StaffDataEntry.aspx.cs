@@ -23,7 +23,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         String DOB = txtDOB.Text;
         String Email = txtEmail.Text;
         String MonthlySalary = txtMonthlyS.Text;
-        // String OnHoliday = chkOnHoliday.Checked; 
+        //String OnHoliday = chkOnHoliday.Checked; 
 
         String Error = "";
         Error = AnStaff.Valid(BranchID, FullName, DOB, Email, MonthlySalary);
@@ -34,8 +34,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.DOB = Convert.ToDateTime(txtDOB.Text);
             AnStaff.Email = txtEmail.Text;
             AnStaff.MonthlySalary = Convert.ToDecimal(txtMonthlyS.Text);
-            Session["AnStaff"] = AnStaff;
-            Response.Redirect("StaffViwe.aspx");
+            AnStaff.OnHoliday = chkOnHoliday.Checked;
+            clsStaffCollection StaffList = new clsStaffCollection();
+            StaffList.ThisStaff = AnStaff;
+            StaffList.Add();
+           // Session["AnStaff"] = AnStaff;
+            Response.Redirect("StaffList.aspx");
         }
         else
         {
