@@ -55,27 +55,6 @@ namespace ClassLibrary
 
             }
 
-            clsCustomers TestItem = new clsCustomers();
-            TestItem.CustomerID = 1;
-            TestItem.CustomerName = "Fatimah Badin";
-            TestItem.CustomerEmail = "fatimah@gmail.com";
-            TestItem.Password = "fatimah123";
-            TestItem.CustomerAddress = "10 green street LE6 6BH";
-            TestItem.DateOfBirth = DateTime.Now.Date.AddYears(-20);
-            TestItem.LivesInUK = true;
-            mCustomerList.Add(TestItem);
-       
-            //re initialise the object for new data 
-            TestItem = new clsCustomers();
-            TestItem.CustomerID = 2;
-            TestItem.CustomerName = "Ayaz Suleman";
-            TestItem.CustomerEmail = "asuleman@hotmail.com";
-            TestItem.Password = "ayaz123";
-            TestItem.CustomerAddress = "165 park street LE9 7BS";
-            TestItem.DateOfBirth = DateTime.Now.Date.AddYears(-21);
-            TestItem.LivesInUK = true;
-            mCustomerList.Add(TestItem);
-
         }
     }
 }
