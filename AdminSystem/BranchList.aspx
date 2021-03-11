@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BranchList.aspx.cs" Inherits="_1_List" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BranchList.aspx.cs" Inherits="BranchList" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:ListBox ID="lstBranchList" runat="server" Height="404px" Width="439px"></asp:ListBox>
     </form>
 </body>
 </html>
